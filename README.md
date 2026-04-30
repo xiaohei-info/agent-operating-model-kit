@@ -2,7 +2,7 @@
 
 A reusable operating model kit for running a **single-customer micro AI organization**.
 
-This repository is not a new execution engine. It is a **governance overlay** for agent systems that already know how to execute tasks. Its job is to help those systems behave like small, disciplined, economically aware organizations.
+This repository is not a new execution engine. It is a **governance overlay** for agent systems that already know how to execute tasks. Its purpose is to help those systems behave like small, disciplined, economically aware organizations.
 
 For Chinese readers: see [README.zh-CN.md](README.zh-CN.md).
 
@@ -10,83 +10,120 @@ For Chinese readers: see [README.zh-CN.md](README.zh-CN.md).
 
 The fastest way to use this repository is to **hand it directly to your own agent**.
 
-Tell your agent something like:
+Use a prompt like this:
 
-> Read `README.md` first. Then read `docs/operating-doctrine.md`, `docs/layering.md`, `docs/adoption-playbook.md`, and `docs/what-goes-where.md`. Adopt this operating model in the current environment. Decide what should live in soul/profile, skills, cron, memory, docs, and task state. Start with the lowest maturity level that makes sense. Do not rebuild the existing execution stack unless there is a clear governance gap.
+> Read this repository starting with `README.md`, then `docs/implementation-guide.md`. Adopt this operating model in the current environment. Decide what should be added to the runtime profile or system prompt, what should become governance skills, what should become recurring reviews, and what should stay in memory or task state. Start with the smallest useful adoption layer. Reuse the existing execution stack wherever possible. Do not rebuild planning, coding, research, or debugging workflows unless there is a clear governance gap.
 
 If your framework already has solid planning, coding, research, and review workflows, do **not** replace them. This kit is designed to help your agent layer governance on top of what already works.
 
-## How it works
+## Charter
 
-The kit adds a governance layer on top of an existing agent framework.
+### What this is
 
-Instead of asking only:
+Treat the agent system as a **micro AI organization** centered on one core customer.
+
+This model works best when there is one primary customer, stakeholder, or operating center for demand, budget, and acceptance.
+
+In this model, the core customer is:
+- the primary source of demand
+- the budget provider
+- the final acceptance authority
+- the anchor for value measurement
+
+That shifts the operating question from:
 
 > Can the agent do this?
 
-It forces the system to ask:
+To:
 
 > Should the organization spend budget on this now, and what durable value will it create?
 
-The model is built around a few core ideas:
+### Mission
 
-- one core customer anchors demand, budget, and acceptance
-- the mission is to create the maximum real value within budget constraints
-- the north star is **effective value created per token spent**
-- needs should become deliverables, and deliverables should become assets
-- work that cannot prove value should not consume budget
-- work without a concrete output or fresh verification is not truly complete
+Within budget constraints, continuously create the maximum real value for the core customer.
 
-In practice, the kit works by combining:
-- a doctrine document
-- a compact runtime principles excerpt
-- governance skills that create decision and completion gates
-- recurring review prompts for KPI and doctrine audits
-- framework-specific integration guidance when needed
+### North star
 
-## Adoption
+**Maximize effective value created per token spent.**
 
-This repository is meant to be adopted in layers, not installed as one giant bundle.
+### Default goal
+
+Turn needs into deliverables. Turn deliverables into assets.
+
+### Iron laws
+
+1. Work that cannot prove value should not consume budget.
+2. Work without a concrete output is not considered finished work.
+3. Work without verification or review is not considered truly complete.
+4. Prefer asset creation over repeated one-off effort.
+5. Prefer the shortest path that preserves correctness and customer value.
+6. Agents may proactively close gaps, but may not proactively expand scope for the sake of activity.
+
+### Leadership principles
+
+- Customer value first
+- Steward budget deliberately
+- Deliverables over performance
+- Correctness over fluency
+- Simplify relentlessly
+- Review protects reality
+- Assets compound
+- Act, but don’t thrash
+- State assumptions and boundaries
+- Learn into structure
+
+### Company-level KPIs
+
+- customer value output
+- token efficiency
+- cycle time
+- assetization rate
+
+## How to adopt it
+
+Use the model in layers, not as one giant install.
 
 ### Level 0: Doctrine only
-Read the model and align on terminology.
+Read and align on the model.
 
 ### Level 1: Runtime principles
-Add a compact excerpt to your agent's soul/profile/system prompt.
+Add a compact excerpt to your runtime profile / system prompt / equivalent layer.
 
 ### Level 2: Governance gates
-Adopt the small governance skills so the model influences task start, closeout, and assetization.
+Adopt small governance skills so the model influences task start, closeout, and assetization.
 
 ### Level 3: Recurring review
-Add weekly and monthly review cadence using the provided cron templates.
+Add weekly and monthly review cadence.
 
 ### Level 4: Framework-specific integration
-Document how the model maps onto your framework's runtime profile, skills, cron, memory, and task tracking.
+Map the model onto your framework’s runtime profile, skills, cron/scheduler, memory, and task tracking.
 
 ### Level 5: Standalone operating mode
 Package doctrine + runtime principles + governance skills + recurring review as a portable operating mode.
 
-For a fuller rollout path, see [docs/adoption-playbook.md](docs/adoption-playbook.md).
+## What goes where
 
-For the shortest placement rules, see [docs/what-goes-where.md](docs/what-goes-where.md).
+- **README / docs**: doctrine, rationale, KPI definitions, integration guidance
+- **runtime profile / system prompt**: compact high-frequency principles only
+- **skills**: reusable governance gates and judgment workflows
+- **cron / scheduler**: weekly and monthly operating reviews
+- **memory**: stable customer, environment, and preference facts only
+- **task state**: current work, blockers, next actions, verification targets
+- **assets**: skills, scripts, SOPs, docs, templates, recurring reviews
 
-For directly handing the kit to another agent, see [examples/generic/example-agent-handoff.md](examples/generic/example-agent-handoff.md).
+Do **not** put the full doctrine into memory or a giant runtime prompt. Do **not** use this kit to replace an execution stack that already works.
 
-## What's inside
+## What’s inside
 
 ```text
 agent-operating-model-kit/
 ├── README.md
 ├── README.zh-CN.md
-├── AGENTS.md
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── docs/
-│   ├── operating-doctrine.md
-│   ├── kpi.md
-│   ├── layering.md
-│   ├── adoption-playbook.md
-│   ├── what-goes-where.md
+│   ├── implementation-guide.md
+│   ├── social-preview.md
 │   └── integrations/
 │       └── hermes.md
 ├── skills/
@@ -96,41 +133,16 @@ agent-operating-model-kit/
 │   │   └── SKILL.md
 │   └── assetization-closeout/
 │       └── SKILL.md
-├── templates/
-│   ├── soul/
-│   │   ├── hermes-soul-excerpt.md
-│   │   └── generic-agent-soul-excerpt.md
-│   ├── cron/
-│   │   ├── weekly-operating-review.md
-│   │   └── monthly-operating-audit.md
-│   └── review/
-│       └── task-closeout-template.md
-└── examples/
-    ├── generic/
-    │   ├── example-adoption.md
-    │   └── example-agent-handoff.md
-    └── hermes/
-        └── example-adoption.md
+└── assets/
+    └── social-preview-final.jpg
 ```
-
-### Docs
-Long-form doctrine, KPI definitions, layering, and adoption guidance.
-
-### Skills
-Small governance skills that sit **above** execution skills rather than replacing them.
-
-### Templates
-Copyable soul excerpts, cron prompts, and review templates.
-
-### Examples
-Reference rollouts. These are examples, not the only valid way to adopt the model.
 
 ## Philosophy
 
 The most common mistake in agent systems is to solve missing governance by adding more execution complexity.
 
 This kit goes in the opposite direction:
-- reuse the host framework's execution strengths
+- reuse the host framework’s execution strengths
 - add doctrine before adding machinery
 - add gates before adding new roles
 - add recurring review before adding more automation
@@ -140,14 +152,10 @@ This kit goes in the opposite direction:
 
 This repository is intentionally framework-agnostic at the core.
 
-Framework-specific guidance should stay at the edges:
-- integration docs under `docs/integrations/`
-- reference rollouts under `examples/`
+Framework-specific guidance should stay at the edges under `docs/integrations/`.
 
 Current reference integration:
 - Hermes: `docs/integrations/hermes.md`
-
-The repo intentionally keeps framework-specific examples minimal. The generic example and generic agent handoff should be enough for many environments; framework-specific notes are there only as reference edges.
 
 ## Contributing
 

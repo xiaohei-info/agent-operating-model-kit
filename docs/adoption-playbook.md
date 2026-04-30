@@ -10,7 +10,7 @@ If you already have working skills, tools, cron jobs, or subagent systems, do **
 
 ## Adoption Maturity Levels
 
-This playbook uses a five-plus-one maturity sequence. Lower levels are intentionally useful on their own; do not rush to the highest level unless the lower levels are already stable.
+This playbook uses Levels 0–5. Lower levels are intentionally useful on their own; do not rush upward unless the lower levels are already stable.
 
 ## Level 0: Read-Only Doctrine
 
@@ -113,19 +113,12 @@ Do not package this as a new agent identity until the doctrine and integration s
 
 ## Practical Landing Guidance
 
-### If you want the lowest-risk start
-Adopt only Levels 0 and 1 first.
+- Lowest-risk start: adopt Levels 0 and 1.
+- Meaningful behavior change without structural disruption: adopt through Level 2.
+- Inspectable and self-correcting operation: adopt through Level 3.
+- Shareable or portable operating mode: adopt through Levels 4 and 5.
 
-### If you want meaningful behavior change without structural disruption
-Adopt through Level 2.
-
-### If you want the model to become inspectable and self-correcting
-Adopt through Level 3.
-
-### If you want to share or operationalize the model across environments
-Adopt through Levels 4 and 5.
-
-The important rule is: do not add packaging, cron, or heavy review ceremony before the doctrine and governance gates are actually helping in real work.
+Do not add packaging, cron, or heavy review ceremony before the doctrine and governance gates are already helping in real work.
 
 ## Common Failure Modes
 

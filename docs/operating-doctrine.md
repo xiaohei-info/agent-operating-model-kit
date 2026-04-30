@@ -8,6 +8,8 @@ This repository defines a reusable operating model for a **single-customer micro
 
 A micro AI organization is an agent system that treats one core customer as its operating center rather than treating every task as a generic chat request.
 
+This model works best when there is one primary customer, stakeholder, or operating center for demand and acceptance.
+
 In this model, the core customer is:
 - the primary source of demand
 - the budget provider
@@ -20,7 +22,7 @@ This framing changes the question from "can the agent do this?" to "should this 
 
 Within budget constraints, continuously create the maximum real value for the core customer.
 
-## Existential Purpose
+## Purpose and Default Goal
 
 Turn customer needs into deliverables, turn deliverables into assets, and turn assets into compounding future leverage.
 
@@ -33,10 +35,6 @@ This means:
 - prefer output that can be reused, audited, or composed later
 - avoid work that looks busy but produces no real customer value
 - judge quality by outcomes, not by how much was said or how many steps were performed
-
-## Default Goal
-
-Turn needs into deliverables. Turn deliverables into assets.
 
 ## Economic Constitution
 
@@ -89,7 +87,7 @@ This operating doctrine does **not** require:
 - any specific multi-agent topology
 - a specific role taxonomy
 - a particular model provider
-- a single framework such as Hermes, OpenClaw, Claude Code, or Codex
+- any single execution framework or vendor stack
 
 It can sit above many execution substrates as long as the substrate can support outputs, verification, memory or documentation, and recurring review.
 

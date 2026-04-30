@@ -44,7 +44,7 @@ In practice, the kit works by combining:
 - recurring review prompts for KPI and doctrine audits
 - framework-specific integration guidance when needed
 
-## Installation / Adoption
+## Adoption
 
 This repository is meant to be adopted in layers, not installed as one giant bundle.
 
@@ -55,13 +55,13 @@ Read the model and align on terminology.
 Add a compact excerpt to your agent's soul/profile/system prompt.
 
 ### Level 2: Governance gates
-Adopt the small governance skills so the model influences task start, task closeout, and assetization.
+Adopt the small governance skills so the model influences task start, closeout, and assetization.
 
 ### Level 3: Recurring review
 Add weekly and monthly review cadence using the provided cron templates.
 
 ### Level 4: Framework-specific integration
-Document how the model maps onto your framework's soul, skills, cron, memory, and task tracking.
+Document how the model maps onto your framework's runtime profile, skills, cron, memory, and task tracking.
 
 ### Level 5: Standalone operating mode
 Package doctrine + runtime principles + governance skills + recurring review as a portable operating mode.

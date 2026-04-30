@@ -43,9 +43,10 @@ Translate doctrine into a compact set of high-frequency judgment biases that can
 - proactive gap-closing, not proactive scope expansion
 
 ### Best carrier
-- soul excerpt
+- runtime profile excerpt
 - profile charter
 - compact system prompt overlay
+- framework-specific soul layer if that is the local term
 
 ### Not for
 - KPI tables
@@ -166,7 +167,7 @@ Capture reusable residue from work so future budget goes further.
 - humans need to understand or debate it
 - it is long-lived doctrine or rationale
 
-### Put it in soul when
+### Put it in a runtime profile or prompt layer when
 - it should influence nearly every live decision
 - it can be compressed to a few stable lines
 

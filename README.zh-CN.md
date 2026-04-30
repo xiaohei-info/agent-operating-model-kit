@@ -45,7 +45,7 @@
 先理解模型和术语，不改运行时。
 
 ### Level 1：运行时原则
-把压缩后的原则放进 soul / profile / system prompt。
+把压缩后的原则放进 runtime profile / system prompt（或你的框架对应层）。
 
 ### Level 2：治理关卡
 采用小型 governance skills，让模型在开工、收尾、资产化时被约束。

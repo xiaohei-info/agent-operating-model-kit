@@ -1,0 +1,76 @@
+---
+name: delivery-review-gates
+description: Use before claiming work is complete to enforce output clarity, verification evidence, review expectations, and side-effect awareness.
+version: 0.1.0
+author: Agent Operating Doctrine
+license: MIT
+---
+
+# Delivery Review Gates
+
+## Overview
+
+This skill governs the end of a task. It is for checking whether work is truly ready to report as complete.
+
+## Use This When
+
+Use when:
+- you are about to say a task is done
+- you are wrapping up code, research, or configuration work
+- delegated or multi-step work has returned and needs final validation
+- the result has side effects or could be mistaken as finished when it is not
+
+## The Gates
+
+### 1. Deliverable Gate
+Ask:
+- What exactly is the output?
+- Is it concrete enough for the customer to inspect or use?
+
+If the output is vague, the task is not ready to close.
+
+### 2. Verification Gate
+Ask:
+- What fresh evidence proves the claim?
+- What command, file check, or reproduction path supports completion?
+
+No completion claims without fresh evidence.
+
+### 3. Review Gate
+Ask:
+- Does this require a second perspective?
+- Is the risk level high enough that independent review is warranted?
+
+For low-risk work, explicit self-verification may be enough. For higher-risk work, require an independent check or human confirmation.
+
+### 4. Side-Effect Gate
+Ask:
+- Did this modify configuration, data, services, or external state?
+- Was the side-effect within authorized scope?
+- Does the customer need to confirm anything before proceeding further?
+
+### 5. Boundary Gate
+Ask:
+- What remains unverified?
+- What limits or known issues should be disclosed?
+
+Never report full completion when material uncertainty remains.
+
+## Recommended Closeout Format
+
+- What I changed or produced
+- How I verified it
+- Known limits or unverified edges
+- Suggested next step
+
+## Anti-Patterns
+
+Avoid:
+- reporting vibes instead of evidence
+- presenting partial verification as full verification
+- hiding assumptions or known gaps to make the output seem more finished
+- treating review as optional for risky work
+
+## Verification
+
+This skill succeeds if completion claims become more evidence-based, lower-risk, and easier to trust.

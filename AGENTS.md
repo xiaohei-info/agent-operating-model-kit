@@ -13,6 +13,9 @@ Read in this order:
 
 Read on demand:
 - `docs/operating-doctrine.md` — when you need the full charter, packaging rationale, KPI frame, or doctrine audit standard
+- `MEMORY.md` — when deciding what durable facts belong in memory vs other surfaces
+- `skills/README.md` — when deciding how reusable governance skills should be installed or adapted
+- `templates/cron/README.md` — when deciding how scheduled governance should be installed or adapted
 - `docs/integrations/hermes.md` — when the target environment is Hermes
 - `skills/operating-gates/SKILL.md` — before starting non-trivial work
 - `skills/delivery-review-gates/SKILL.md` — before claiming work is complete

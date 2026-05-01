@@ -33,12 +33,9 @@ Read it when:
 
 ### Skills layer
 
-Adopt the governance skills from this repository:
-- `skills/operating-gates/SKILL.md`
-- `skills/delivery-review-gates/SKILL.md`
-- `skills/assetization-closeout/SKILL.md`
+See [`skills/README.md`](skills/README.md) for generic deployment guidance.
 
-You can:
+In Hermes specifically, you can:
 - symlink or copy them under `~/.hermes/skills/`
 - or adapt them into Hermes-native skill format if conventions differ
 
@@ -46,18 +43,17 @@ Keep using Hermes' own execution skills for planning, coding, research, debuggin
 
 ### Review cadence
 
-Use Hermes `cronjob` or equivalent scheduler to run:
+See [`templates/cron/README.md`](templates/cron/README.md) for generic deployment guidance.
+
+In Hermes specifically, use Hermes `cronjob` to wire:
 - `templates/cron/weekly-operating-review.md` — weekly governance review
 - `templates/cron/monthly-operating-audit.md` — monthly doctrine audit
 
-Wire these as cron jobs with:
-- a clear prompt
-- an output target
-- a delivery channel
+Wire these as cron jobs with a clear prompt, output target, and delivery channel.
 
 ### Memory layer
 
-Use Hermes `memory` for stable customer and environment facts only.
+See [`MEMORY.md`](MEMORY.md) for exact boundaries.
 
 Do not put the doctrine or long workflows into memory.
 

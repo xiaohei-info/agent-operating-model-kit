@@ -2,7 +2,7 @@
 
 A reusable operating model for running an agent system as a **single-customer micro AI organization**.
 
-This repository is not a new execution engine. It is a **governance package**: a portable charter, thin always-loaded guidance, governance skills, and recurring review prompts that can be layered onto an execution stack that already works.
+This repository is not a new execution engine. It is a **governance package**: a canonical charter, reusable governance skills, optional runtime reference surfaces, and optional recurring review prompts that can be layered onto an execution stack that already works.
 
 For Chinese readers: see [README.zh-CN.md](README.zh-CN.md).
 
@@ -15,95 +15,69 @@ Most agent systems do not fail because they cannot execute. They fail because th
 - recurring review
 - structural assetization
 
-This kit packages those governance pieces in a form another agent can actually install.
+This kit packages those governance pieces in a form humans can evaluate and agents can adopt.
 
-## Packaging model
+## How to read this repository
 
-This repo now follows a stronger split between **full doctrine** and **always-loaded operating surfaces**:
+This repository contains several **different kinds of artifacts**. They cooperate, but they are not the same concept.
 
-- `docs/operating-doctrine.md` — full charter / canonical doctrine
-- `AGENTS.md` — thin operational loader for another agent
-- `SOUL.md` — compressed runtime charter for high-frequency loading
-- `skills/` — reusable governance gates
-- `templates/cron/` — recurring weekly/monthly review prompts
-- `templates/review/` — closeout structure for delivery review
-- `docs/implementation-guide.md` — how to land this into another stack
-- `docs/integrations/hermes.md` — Hermes-specific mapping
+### 1. Core skill artifacts
+These carry the actual operating model and reusable governance logic.
 
-That is the key packaging principle:
+- [`docs/operating-doctrine.md`](docs/operating-doctrine.md) — canonical charter / doctrine
+- [`skills/`](skills/) — reusable governance skills
+- [`templates/review/task-closeout-template.md`](templates/review/task-closeout-template.md) — reusable closeout structure
 
-> Keep the always-loaded layer short. Keep the full doctrine canonical and separate.
+### 2. Integration surfaces
+These help another agent or framework map the package into its own runtime.
 
-## Quick start
+- [`AGENTS.md`](AGENTS.md) — thin operational loader / read router
+- [`SOUL.md`](SOUL.md) — compressed runtime guidance for high-frequency loading
+- [`MEMORY.md`](MEMORY.md) — boundaries for durable memory
+- [`docs/implementation-guide.md`](docs/implementation-guide.md) — how to map the package into a host stack
+- [`docs/integrations/hermes.md`](docs/integrations/hermes.md) — Hermes-specific reference integration
 
-The fastest path is to hand this repository to your agent and ask it to adopt the smallest useful layer.
+### 3. Operational surfaces
+These are optional surfaces for recurring governance, not universal requirements for every skill repo.
 
-Suggested prompt:
+- [`templates/cron/`](templates/cron/) — recurring operating review prompts
 
-> Read `README.md`, then `AGENTS.md`, then `SOUL.md`, then `docs/implementation-guide.md`. Use `docs/operating-doctrine.md` as the full charter reference. Map this kit into the current environment without replacing a mature execution stack. Decide what belongs in the runtime layer, what should become governance skills, what should run on a recurring schedule, and what should stay out of memory. Start with the smallest useful adoption layer and report the concrete file / skill / cron changes you recommend.
+### 4. Deployment guides
+These explain how the reusable pieces should be installed or adapted.
 
-If your framework already has solid planning, coding, research, debugging, and verification workflows, **do not replace them**. This kit is designed to govern them, not rebuild them.
+- [`skills/README.md`](skills/README.md) — skill deployment guidance
+- [`templates/cron/README.md`](templates/cron/README.md) — scheduled workflow deployment guidance
 
-## How another agent should land this
+## Packaging principle
 
-### Step 1 — Read in the right order
+The key packaging principle is simple:
 
-1. `README.md` — understand the package and adoption path
-2. `AGENTS.md` — understand the loader / routing pattern
-3. `SOUL.md` — understand the compressed runtime principles
-4. `docs/operating-doctrine.md` — read when you need the full charter
-5. `docs/implementation-guide.md` — map the pieces into the host stack
-6. `docs/integrations/hermes.md` — if the target stack is Hermes
-
-### Step 2 — Install only the smallest useful layer first
-
-Use layers rather than a giant one-shot install:
-
-- **Level 0 — doctrine**: align on the model
-- **Level 1 — runtime layer**: install the compressed principles from `SOUL.md`
-- **Level 2 — governance skills**: add the three governance gates from `skills/`
-- **Level 3 — recurring review**: wire the weekly/monthly prompts from `templates/cron/`
-- **Level 4 — framework mapping**: connect runtime / skills / cron / memory / task state to the host stack
-- **Level 5 — portable mode**: keep the package reusable across projects or profiles
-
-### Step 3 — Keep the layers clean
-
-- put **full doctrine** in docs, not memory
-- keep **runtime prompts** compressed and high-frequency only
-- put **repeatable judgment** in skills
-- put **recurring governance** in cron / scheduler prompts
-- keep **memory** for stable facts only
-- keep **task state** for active execution only
-
-## What goes where
-
-- **`docs/operating-doctrine.md`**: full charter, rationale, KPIs, governing logic
-- **`AGENTS.md`**: the read router that tells another agent what to load first and when to escalate to deeper docs
-- **`SOUL.md`**: compact operating principles for high-frequency prompt loading
-- **`skills/`**: governance gates for start, closeout, and assetization
-- **`templates/cron/`**: scheduled weekly and monthly governance reviews
-- **`templates/review/`**: delivery closeout shape
-- **memory**: stable customer / environment / preference facts only
-- **task state**: current work, blockers, next actions, verification targets
-- **assets**: skills, SOPs, docs, scripts, templates, recurring reviews
+> Keep the canonical doctrine explicit. Keep runtime guidance compressed. Keep deployment and operations separate from the skill artifact itself.
 
 ## Directly usable assets
 
-### Runtime surfaces
+### Canonical doctrine and mapping docs
+- [`docs/operating-doctrine.md`](docs/operating-doctrine.md)
+- [`docs/implementation-guide.md`](docs/implementation-guide.md)
+- [`MEMORY.md`](MEMORY.md)
+
+### Runtime / host adaptation references
 - [`AGENTS.md`](AGENTS.md)
 - [`SOUL.md`](SOUL.md)
-- [`docs/operating-doctrine.md`](docs/operating-doctrine.md)
+- [`docs/integrations/hermes.md`](docs/integrations/hermes.md)
 
 ### Governance skills
 - [`skills/operating-gates/SKILL.md`](skills/operating-gates/SKILL.md)
 - [`skills/delivery-review-gates/SKILL.md`](skills/delivery-review-gates/SKILL.md)
 - [`skills/assetization-closeout/SKILL.md`](skills/assetization-closeout/SKILL.md)
+- [`skills/README.md`](skills/README.md)
 
-### Recurring review prompts
+### Optional recurring governance prompts
 - [`templates/cron/weekly-operating-review.md`](templates/cron/weekly-operating-review.md)
 - [`templates/cron/monthly-operating-audit.md`](templates/cron/monthly-operating-audit.md)
+- [`templates/cron/README.md`](templates/cron/README.md)
 
-### Closeout template
+### Review template
 - [`templates/review/task-closeout-template.md`](templates/review/task-closeout-template.md)
 
 ## Repository layout
@@ -114,6 +88,7 @@ agent-operating-model-kit/
 ├── README.zh-CN.md
 ├── AGENTS.md
 ├── SOUL.md
+├── MEMORY.md
 ├── CONTRIBUTING.md
 ├── docs/
 │   ├── operating-doctrine.md
@@ -122,6 +97,7 @@ agent-operating-model-kit/
 │   └── integrations/
 │       └── hermes.md
 ├── skills/
+│   ├── README.md
 │   ├── operating-gates/
 │   │   └── SKILL.md
 │   ├── delivery-review-gates/
@@ -130,6 +106,7 @@ agent-operating-model-kit/
 │       └── SKILL.md
 ├── templates/
 │   ├── cron/
+│   │   ├── README.md
 │   │   ├── weekly-operating-review.md
 │   │   └── monthly-operating-audit.md
 │   └── review/
@@ -148,10 +125,33 @@ This package is intentionally conservative:
 - keep always-loaded files short
 - turn repeated work into assets only when it clearly compounds value
 
-## Full charter
+## For Agents
 
-For the complete doctrine, read:
-- [docs/operating-doctrine.md](docs/operating-doctrine.md)
+If you are an adopting agent, use this repository as a **mapping reference**, not as a blind overwrite package.
+
+### Read order
+1. [`README.md`](README.md)
+2. [`AGENTS.md`](AGENTS.md)
+3. [`docs/implementation-guide.md`](docs/implementation-guide.md)
+4. [`docs/operating-doctrine.md`](docs/operating-doctrine.md)
+5. Optional, when needed:
+   - [`SOUL.md`](SOUL.md)
+   - [`MEMORY.md`](MEMORY.md)
+   - [`skills/README.md`](skills/README.md)
+   - [`templates/cron/README.md`](templates/cron/README.md)
+   - [`docs/integrations/hermes.md`](docs/integrations/hermes.md)
+
+### Minimal landing task
+Determine which parts of this package belong in the host environment as:
+- canonical doctrine
+- reusable skills
+- runtime guidance
+- durable memory boundaries
+- scheduled or recurring governance
+
+Do not assume every surface in this repository must be installed. Some are **core artifacts**, some are **integration references**, and some are **optional operational surfaces**.
+
+If the host framework already has strong planning, coding, research, debugging, verification, or scheduling workflows, reuse them and add only the governance pieces that create real value.
 
 ## Framework integrations
 

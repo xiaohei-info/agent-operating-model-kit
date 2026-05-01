@@ -6,99 +6,170 @@ This document explains how to land the operating model in another agent environm
 
 This repository is a governance package, not a replacement execution substrate.
 
-It tells operators and agents **what to add where**, and provides **thin host-facing files** that can be adapted deliberately.
+Do not blindly copy everything into the host profile. Instead, identify what each file is for and map only the surfaces the host environment actually needs.
 
-Do not blindly copy everything into the host profile. Instead, map the pieces to the right layers.
+## First distinction: artifact types
 
-## How to adopt
+This repository contains several different kinds of packaging surfaces.
 
-### 1. Runtime profile / system prompt layer
+### 1. Core artifacts
+These carry the doctrine and reusable governance logic itself.
 
-Install the compressed operating charter from `SOUL.md`.
+Examples:
+- `docs/operating-doctrine.md`
+- `skills/*/SKILL.md`
+- `templates/review/task-closeout-template.md`
+
+### 2. Integration surfaces
+These help the host map the package into runtime behavior.
+
+Examples:
+- `AGENTS.md`
+- `SOUL.md`
+- `MEMORY.md`
+- `docs/integrations/<framework>.md`
+
+### 3. Operational surfaces
+These support recurring or ongoing governance.
+
+Examples:
+- `templates/cron/*.md`
+
+### 4. Deployment guides
+These explain how the reusable pieces should be installed or adapted.
+
+Examples:
+- `skills/README.md`
+- `templates/cron/README.md`
+- this document
+
+These categories cooperate, but they are not interchangeable.
+
+## How to map the package into a host stack
+
+### A. Canonical doctrine
+Keep the full charter in a durable reference surface.
+
+Recommended source:
+- `docs/operating-doctrine.md`
+
+Use it when:
+- aligning on model changes
+- auditing drift
+- deciding what belongs in runtime vs skills vs operations
+- explaining the rationale to humans
+
+Do not load the full charter into every session unless the host explicitly needs it.
+
+### B. Reusable governance skills
+Install the governance skills only where the host benefits from reusable judgment or workflow enforcement.
+
+Recommended source:
+- `skills/operating-gates/SKILL.md`
+- `skills/delivery-review-gates/SKILL.md`
+- `skills/assetization-closeout/SKILL.md`
+- `skills/README.md`
+
+Use them for:
+- start-of-work gating
+- completion / closeout review
+- assetization decisions
+
+These skills govern execution. They do not replace the host framework's planning, coding, research, debugging, or verification stack.
+
+### C. Runtime guidance
+Some hosts need a compressed, always-loaded runtime surface. Some do not.
+
+Recommended source:
+- `SOUL.md`
+
+Use it when the host has a clear runtime prompt / system prompt / profile surface.
 
 Keep it small:
 - customer value first
 - token is budget
 - no concrete output means not finished
 - no verification means not complete
-- proactively close gaps, but do not expand scope
+- proactively close gaps, but do not expand scope for activity's sake
 
-Do not put:
+Do not put into the runtime surface:
 - the full doctrine
-- KPI definitions
-- long adoption instructions
+- long KPI definitions
+- large implementation guides
 - recurring review prompts
 
-### 2. Charter layer
+### D. Agent-facing routing surface
+Some hosts benefit from a thin operational loader that tells an adopting agent what to read first.
 
-Keep the canonical full charter in `docs/operating-doctrine.md`.
+Recommended source:
+- `AGENTS.md`
 
-Reference it when:
-- aligning on model changes
-- auditing whether runtime / skills / cron have drifted from doctrine
-- deciding what belongs where
-- explaining the rationale to humans
+Use it when the host supports a dedicated agent-facing entry file or equivalent routing document.
 
-Do not load the full charter into every session unless the host explicitly requests it.
+If the host already has a stronger local runtime/entrypoint file, merge or adapt deliberately rather than blindly overwriting it.
 
-### 3. Governance skills layer
+### E. Memory boundaries
+Some hosts expose durable memory. If they do, define what belongs there before storing anything.
 
-Adopt the three governance skills from this repository:
-- `operating-gates` — gate before starting non-trivial work
-- `delivery-review-gates` — gate before claiming completion
-- `assetization-closeout` — gate after valuable/repeated work
+Recommended source:
+- `MEMORY.md`
 
-These skills govern execution, not replace it. Use them to enforce value, budget, scope, and verification checks.
+In short:
+- memory is for stable facts and accepted conventions
+- memory is not for doctrine, long procedures, or active task state
 
-### 4. Recurring review layer
+### F. Scheduled / recurring governance
+Only install recurring governance surfaces if the host has an actual scheduler, cron system, heartbeat, or durable background execution path.
 
-Use the host’s cron / scheduler / heartbeat system to run:
+Recommended source:
 - `templates/cron/weekly-operating-review.md`
 - `templates/cron/monthly-operating-audit.md`
+- `templates/cron/README.md`
 
-These prompts enforce recurring governance.
+Use them for:
+- weekly operating review
+- monthly doctrine audit
 
-### 5. Memory layer
+Do not treat scheduled prompts as mandatory for every adoption. They are optional operational surfaces.
 
-Use the host’s memory system only for stable facts:
-- the core customer identity
-- durable environment constraints
-- long-lived user preferences
+### G. Task state
+Task state usually belongs to the host's existing task board, todo system, issue tracker, or planning files.
 
-Do not put the doctrine, procedures, or long workflows into memory.
+Recommended rule:
+- keep active execution state in the host's task system
+- do not confuse task state with doctrine, memory, or reusable skills
 
-### 6. Task-state layer
+## Package anatomy vs rollout order
 
-Use the host’s task board, todo, or plan files for:
-- current work
-- blockers
-- next actions
-- verification targets
+Two different questions must stay separate:
 
-Task state should track active execution, not permanent governance.
+- **Package anatomy**: what kinds of artifacts the repository ships
+- **Rollout order**: in what sequence the host should adopt them
 
-### 7. Host-facing entry files
+Do not confuse them.
 
-This repo now ships thin host-facing files that you can adapt deliberately:
-- `AGENTS.md` — operational loader / read router
-- `SOUL.md` — compressed runtime charter
-
-You can:
-- use them directly if the host environment accepts such files
-- merge them into existing host files if the host already has stronger local versions
-- rewrite them for your framework if the conventions differ
-
-Do **not** blindly overwrite stronger local entry files.
+A repository may ship runtime surfaces, memory guidance, scheduled prompts, and framework adapters, but a specific host may only need some of them.
 
 ## Recommended rollout order
 
-1. Read `README.md`, `AGENTS.md`, and `SOUL.md`.
-2. Read `docs/operating-doctrine.md` to understand the full charter.
-3. Install the compressed runtime principles.
-4. Install the governance skills.
-5. Install the recurring review prompts.
-6. Map each component to the correct host surface.
-7. Verify that the package did not replace strong execution workflows.
+1. Read `README.md`.
+2. Read `AGENTS.md` for the thin routing view.
+3. Read `docs/operating-doctrine.md` for the canonical model.
+4. Decide which reusable governance skills the host should install.
+5. Decide whether the host needs compressed runtime guidance from `SOUL.md`.
+6. Decide whether the host needs durable memory boundaries from `MEMORY.md`.
+7. Decide whether the host has a real scheduler and therefore should adopt `templates/cron/*`.
+8. Map each selected surface into the correct host carrier.
+9. Verify that strong local execution workflows were preserved.
+
+## Decision questions for adopters
+
+Before installing a surface, ask:
+- Is this the skill artifact itself, or just a deployment/integration aid?
+- Does the host already have an equivalent surface?
+- Does the host actually need this surface, or is it optional here?
+- Would installing this improve governance, or just add ceremony?
+- Does this belong in runtime, memory, scheduled review, or reusable skill logic?
 
 ## Success criteria
 
@@ -113,19 +184,17 @@ A successful adoption should result in:
 
 This repository is not trying to:
 - define a universal agent personality
-- mandate a specific multi-agent topology
+- mandate one fixed repository taxonomy for all skill projects
+- force every host to adopt every surface
 - replace a working execution framework
-- force one file structure onto every host environment
 - add bureaucracy for its own sake
 
 ## Verification
 
 After adopting:
-- `README.md` should remain the primary landing and onboarding doc
-- `AGENTS.md` should serve as the operational loader
-- `SOUL.md` should serve as the compressed runtime charter
-- `docs/operating-doctrine.md` should hold the full canonical doctrine
-- skills should govern execution rather than replace it
-- recurring reviews should run with clear output contracts
-- memory should stay compact
-- task state should stay execution-focused
+- `docs/operating-doctrine.md` should remain the canonical doctrine source
+- installed skills should govern execution rather than replace it
+- runtime guidance, if adopted, should stay compressed
+- memory, if used, should stay compact and fact-like
+- recurring reviews, if adopted, should run with clear output contracts
+- platform-specific docs should remain edge integrations, not the core story

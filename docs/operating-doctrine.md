@@ -108,11 +108,13 @@ After valuable work ends, the system should be able to answer:
 - Should this become a reusable asset?
 - If yes, what is the right carrier: skill, doc, SOP, script, template, cron, or memory fact?
 
-## Governance layers
+## Collaboration surfaces
 
-### 1. Runtime layer
+This package may be expressed through multiple **collaboration surfaces**. These surfaces cooperate, but they are not one universal mandatory taxonomy for every skill repository or host framework.
 
-The runtime layer should hold only compressed, high-frequency, stable principles.
+### Runtime guidance surface
+
+When a host framework has a runtime prompt / profile / system-prompt-like surface, it should hold only compressed, high-frequency, stable principles.
 
 Examples:
 - customer value first
@@ -121,14 +123,14 @@ Examples:
 - no verification means not complete
 - proactively close gaps, but do not expand scope for the sake of activity
 
-The runtime layer should **not** hold:
+A runtime guidance surface should **not** hold:
 - the full doctrine
 - long KPI explanations
 - extended adoption playbooks
 - recurring review prompts
 - large framework-specific instructions
 
-### 2. Skills layer
+### Reusable skill surface
 
 Use skills for repeatable judgment and reusable workflows, especially:
 - start-of-work gating
@@ -137,20 +139,20 @@ Use skills for repeatable judgment and reusable workflows, especially:
 
 Skills should stay thin and reusable. They should govern execution rather than replace the execution stack.
 
-### 3. Recurring review layer
+### Scheduled governance surface
 
-Use the scheduler / cron layer for recurring governance.
+When a host framework has a scheduler, cron system, heartbeat, or durable background execution path, recurring governance can be installed there.
 
 Recommended base cadence:
 - weekly operating review
 - monthly doctrine audit
 
 The weekly review asks whether the organization is spending budget well right now.
-The monthly audit asks whether the package, runtime layer, skills, and reviews still match the charter.
+The monthly audit asks whether the package, runtime guidance, installed skills, and recurring reviews still match the charter.
 
-### 4. Memory layer
+### Memory surface
 
-Memory should store compact, durable facts such as:
+When a host offers durable memory, it should store compact, durable facts such as:
 - customer identity
 - stable preferences
 - durable environment constraints
@@ -162,7 +164,7 @@ Memory should **not** become a dumping ground for:
 - active task state
 - raw session diaries
 
-### 5. Task-state layer
+### Task-state surface
 
 Task state should track:
 - current work
@@ -172,6 +174,15 @@ Task state should track:
 
 Task state is for active execution, not permanent governance.
 
+### Integration surfaces
+
+Some repositories also ship thin integration references such as:
+- agent-facing routing files
+- compressed runtime reference files
+- deployment guides
+- framework-specific integration notes
+
+These help an adopting agent decide where the package fits in a host stack. They are useful, but they are not the skill artifact itself.
 ## KPI frame
 
 The model’s KPI frame is intentionally small.
@@ -240,27 +251,27 @@ Avoid asset clutter:
 - do not put procedures into memory when they belong in a skill or doc
 - do not keep documents nobody will consult again
 
-## Adoption model
+## Adoption sequence
 
-Adopt this kit in layers.
+Adopt this kit in sequence, but do not assume every host needs every surface.
 
-### Level 0 — doctrine
+### 1. Understand the canonical doctrine
 Read and align on the model.
 
-### Level 1 — compressed runtime principles
-Install the compressed layer from `SOUL.md` into the host’s runtime / system prompt surface.
-
-### Level 2 — governance skills
+### 2. Choose the reusable governance skills
 Install or map the governance skills so the model influences task start, closeout, and assetization.
 
-### Level 3 — recurring reviews
-Install the weekly and monthly review prompts into the host scheduler.
+### 3. Decide whether the host needs compressed runtime guidance
+If the host has a real runtime prompt/profile surface, install the compressed guidance from `SOUL.md` there.
 
-### Level 4 — framework mapping
-Map each concept to the right host surface: runtime, skill, cron, memory, and task state.
+### 4. Decide whether the host needs recurring governance
+If the host has a scheduler, install the weekly and monthly review prompts.
 
-### Level 5 — portable operating mode
-Keep the whole package reusable so another project, profile, or agent can adopt it with minimal reinvention.
+### 5. Decide whether the host needs explicit memory boundaries
+If the host exposes durable memory, map the boundaries from `MEMORY.md`.
+
+### 6. Map any integration surfaces deliberately
+Map agent-facing routing files, deployment guides, and framework-specific notes only where they help. Keep the package reusable and avoid blind overwrite.
 
 ## Packaging principles
 

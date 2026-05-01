@@ -17,6 +17,19 @@ Most agent systems do not fail because they cannot execute. They fail because th
 
 This kit packages those governance pieces in a form humans can evaluate and agents can adopt.
 
+## Signature operating ideas
+
+What makes this kit distinctive is not just its file structure, but its operating ideas:
+
+- **Token is budget** — model usage, tool calls, coordination overhead, and operator attention are treated as spend, not invisible free goods.
+- **No concrete output means not finished** — visible activity and persuasive narration do not count as completion.
+- **No verification means not complete** — claims must be supported by fresh evidence appropriate to the task.
+- **Treat the agent system as a micro AI organization** — work is governed around one core customer, not around generic assistant behavior.
+- **Turn deliverables into assets** — repeated work should become skills, docs, scripts, templates, or recurring reviews instead of staying trapped in raw conversation.
+- **Govern execution; do not replace it** — the kit is meant to improve an existing host framework, not compete with it.
+
+These ideas are the real product. The repository structure exists to make them portable.
+
 ## Quickstart
 
 If you only have this repo link and need a correct first pass:

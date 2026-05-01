@@ -17,6 +17,20 @@ Most agent systems do not fail because they cannot execute. They fail because th
 
 This kit packages those governance pieces in a form humans can evaluate and agents can adopt.
 
+## Quickstart
+
+If you only have this repo link and need a correct first pass:
+
+1. Read [`docs/operating-doctrine.md`](docs/operating-doctrine.md) to understand the methodology.
+2. Read [`docs/implementation-guide.md`](docs/implementation-guide.md) to map it into the host environment.
+3. Choose an adoption profile:
+   - **Minimum**: doctrine + compressed runtime guidance + manual governance gates
+   - **Standard**: minimum + reusable governance skills + memory boundaries
+   - **Full**: standard + recurring weekly/monthly governance reviews
+4. Keep the host's existing execution strengths.
+5. Install only the governance surfaces the host can actually support.
+6. Run the post-install smoke test from the implementation guide.
+
 ## How to read this repository
 
 This repository contains several **different kinds of artifacts**. They cooperate, but they are not the same concept.
@@ -54,6 +68,34 @@ The key packaging principle is simple:
 
 > Keep the canonical doctrine explicit. Keep runtime guidance compressed. Keep deployment and operations separate from the skill artifact itself.
 
+## Adoption profiles
+
+### Minimum
+Use when the host has limited extensibility.
+
+Install:
+- canonical doctrine
+- compressed runtime guidance if possible
+- manual use of the three governance gates
+
+### Standard
+Use when the host can load reusable skills or equivalent procedural assets.
+
+Install:
+- everything in minimum
+- reusable governance skills
+- memory boundaries if persistent memory exists
+
+### Full
+Use when the host also supports recurring scheduled review.
+
+Install:
+- everything in standard
+- weekly operating review
+- monthly doctrine audit
+
+See [`docs/implementation-guide.md`](docs/implementation-guide.md) for the capability-based landing algorithm and smoke test.
+
 ## Directly usable assets
 
 ### Canonical doctrine and mapping docs
@@ -79,6 +121,17 @@ The key packaging principle is simple:
 
 ### Review template
 - [`templates/review/task-closeout-template.md`](templates/review/task-closeout-template.md)
+
+## What good adoption looks like
+
+A good landing of this kit should make the host system:
+- more explicit about value before scaling up work
+- more evidence-based before claiming completion
+- better at turning repeated work into durable assets
+- more budget-aware without becoming bureaucratic
+- clearer about what belongs in doctrine, runtime, memory, skills, and recurring review
+
+If adoption mainly adds ceremony or duplicates strong local workflows, it has gone wrong.
 
 ## Repository layout
 
@@ -131,10 +184,10 @@ If you are an adopting agent, use this repository as a **mapping reference**, no
 
 ### Read order
 1. [`README.md`](README.md)
-2. [`AGENTS.md`](AGENTS.md)
+2. [`docs/operating-doctrine.md`](docs/operating-doctrine.md)
 3. [`docs/implementation-guide.md`](docs/implementation-guide.md)
-4. [`docs/operating-doctrine.md`](docs/operating-doctrine.md)
-5. Optional, when needed:
+4. Optional, when helpful:
+   - [`AGENTS.md`](AGENTS.md)
    - [`SOUL.md`](SOUL.md)
    - [`MEMORY.md`](MEMORY.md)
    - [`skills/README.md`](skills/README.md)
@@ -148,6 +201,8 @@ Determine which parts of this package belong in the host environment as:
 - runtime guidance
 - durable memory boundaries
 - scheduled or recurring governance
+
+Then choose the smallest adoption profile that preserves the methodology.
 
 Do not assume every surface in this repository must be installed. Some are **core artifacts**, some are **integration references**, and some are **optional operational surfaces**.
 

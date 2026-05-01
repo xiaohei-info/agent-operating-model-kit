@@ -17,6 +17,20 @@
 
 这个仓库把这些治理层内容打包成一种既能给人评估、也能给 agent 落地的形式。
 
+## Quickstart
+
+如果你现在只有这个仓库链接，想先做一个正确的一轮落地：
+
+1. 先读 [`docs/operating-doctrine.md`](docs/operating-doctrine.md) 理解方法论本体。
+2. 再读 [`docs/implementation-guide.md`](docs/implementation-guide.md) 看如何映射到宿主环境。
+3. 选择落地档位：
+   - **Minimum**：doctrine + 压缩运行时 guidance + 手动治理关卡
+   - **Standard**：minimum + 可复用 governance skills + memory boundaries
+   - **Full**：standard + 周期治理 review
+4. 保留宿主原有执行强项。
+5. 只安装宿主真正支持的治理面。
+6. 按 implementation guide 里的 smoke test 验证是否装对。
+
 ## 应该怎么理解这个仓库
 
 这个仓库里有几类**不同角色的产物**。它们会协作，但不是同一个概念。
@@ -54,6 +68,34 @@
 
 > 正典 doctrine 要明确独立；运行时 guidance 要压缩；部署说明和运维面不要和 skill 本体混为一谈。
 
+## 落地档位
+
+### Minimum
+适用于宿主扩展能力有限的情况。
+
+安装：
+- canonical doctrine
+- 如果可能则接入压缩运行时 guidance
+- 手动使用三个 governance gates
+
+### Standard
+适用于宿主可以加载 reusable skills 或等价 procedural assets 的情况。
+
+安装：
+- minimum 全部内容
+- reusable governance skills
+- 若支持 persistent memory，则加 memory boundaries
+
+### Full
+适用于宿主还支持定时 / 周期执行的情况。
+
+安装：
+- standard 全部内容
+- weekly operating review
+- monthly doctrine audit
+
+能力映射算法与 smoke test 见 [`docs/implementation-guide.md`](docs/implementation-guide.md)。
+
 ## 可直接使用的资产
 
 ### 正典文档与映射说明
@@ -79,6 +121,17 @@
 
 ### 收尾模板
 - [`templates/review/task-closeout-template.md`](templates/review/task-closeout-template.md)
+
+## 什么叫“落地成功”
+
+一个好的落地结果，应该让宿主系统变得：
+- 在扩大执行前更明确价值
+- 在宣称完成前更重视证据
+- 在重复工作后更会沉淀资产
+- 更有预算意识但不官僚
+- 更清楚 doctrine、runtime、memory、skills、recurring review 各自该放什么
+
+如果落地后主要增加了 ceremony，或者重复了宿主原有强工作流，那就装偏了。
 
 ## 仓库结构
 
@@ -131,10 +184,10 @@ agent-operating-model-kit/
 
 ### 建议阅读顺序
 1. [`README.md`](README.md)
-2. [`AGENTS.md`](AGENTS.md)
+2. [`docs/operating-doctrine.md`](docs/operating-doctrine.md)
 3. [`docs/implementation-guide.md`](docs/implementation-guide.md)
-4. [`docs/operating-doctrine.md`](docs/operating-doctrine.md)
-5. 视需要再读：
+4. 如有帮助再读：
+   - [`AGENTS.md`](AGENTS.md)
    - [`SOUL.md`](SOUL.md)
    - [`MEMORY.md`](MEMORY.md)
    - [`skills/README.md`](skills/README.md)
@@ -148,6 +201,8 @@ agent-operating-model-kit/
 - runtime guidance
 - durable memory boundaries
 - scheduled / recurring governance
+
+然后选择最小但不失真的 adoption profile。
 
 不要假设仓库里的每个面都必须安装。有些是**核心产物**，有些是**接入参考**，有些只是**可选操作化面**。
 

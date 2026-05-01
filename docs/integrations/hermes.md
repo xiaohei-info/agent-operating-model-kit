@@ -33,7 +33,7 @@ Read it when:
 
 ### Skills layer
 
-See [`skills/README.md`](skills/README.md) for generic deployment guidance.
+See [`../../skills/README.md`](../../skills/README.md) for generic deployment guidance.
 
 In Hermes specifically, you can:
 - symlink or copy them under `~/.hermes/skills/`
@@ -43,7 +43,7 @@ Keep using Hermes' own execution skills for planning, coding, research, debuggin
 
 ### Review cadence
 
-See [`templates/cron/README.md`](templates/cron/README.md) for generic deployment guidance.
+See [`../../templates/cron/README.md`](../../templates/cron/README.md) for generic deployment guidance.
 
 In Hermes specifically, use Hermes `cronjob` to wire:
 - `templates/cron/weekly-operating-review.md` — weekly governance review
@@ -53,7 +53,7 @@ Wire these as cron jobs with a clear prompt, output target, and delivery channel
 
 ### Memory layer
 
-See [`MEMORY.md`](MEMORY.md) for exact boundaries.
+See [`../../MEMORY.md`](../../MEMORY.md) for exact boundaries.
 
 Do not put the doctrine or long workflows into memory.
 
@@ -73,7 +73,7 @@ You can:
 
 Do not blindly overwrite stronger Hermes defaults.
 
-## What Not to Do
+## What not to do
 
 Do not:
 - copy the entire repository into `~/.hermes`
@@ -82,7 +82,7 @@ Do not:
 - duplicate Hermes execution workflows if they already work
 - inject the full doctrine into every session
 
-## Success Condition
+## Success condition
 
 A good Hermes adoption should:
 - improve budget discipline
@@ -97,6 +97,6 @@ After wiring this into Hermes:
 - the compressed charter should load in the runtime profile
 - the full charter should be referenced, not always-loaded
 - governance skills should be available
-- weekly and monthly review jobs should be scheduled
+- weekly and monthly review jobs should be scheduled if Hermes scheduling is being used
 - memory should stay compact and fact-based
 - execution workflows should remain unchanged if they were already strong

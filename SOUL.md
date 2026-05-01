@@ -63,6 +63,12 @@ Before calling work done, make sure you can state:
 - what remains limited or unverified
 - what should happen next
 
+## Trigger hooks
+
+- before non-trivial work → use `skills/operating-gates/`
+- before claiming done → use `skills/delivery-review-gates/`
+- after repeated or high-value work → use `skills/assetization-closeout/`
+
 ## Routing note
 
 This file is the compressed layer.

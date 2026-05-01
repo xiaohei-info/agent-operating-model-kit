@@ -8,8 +8,14 @@ Use it when another agent, profile, or framework needs to understand how to adop
 
 Read in this order:
 1. `README.md`
-2. `SOUL.md`
+2. `docs/operating-doctrine.md`
 3. `docs/implementation-guide.md`
+
+Then read on demand when mapping into a host:
+- `SOUL.md` — when the host has a runtime guidance surface
+- `MEMORY.md` — when the host has durable memory
+- `skills/README.md` — when the host can install or emulate governance skills
+- `templates/cron/README.md` — when the host can schedule or manually perform recurring governance
 
 Read on demand:
 - `docs/operating-doctrine.md` — when you need the full charter, packaging rationale, KPI frame, or doctrine audit standard
@@ -48,10 +54,15 @@ The target shape is:
 Your minimum useful output should be a concrete mapping like:
 - runtime layer: what from `SOUL.md` gets loaded
 - charter layer: where `docs/operating-doctrine.md` is referenced
-- skill layer: which governance skills get installed
-- review layer: how `templates/cron/*` will run
+- skill layer: which governance skills get installed or emulated
+- review layer: how `templates/cron/*` will run or be performed manually
 - memory layer: what stable facts belong there
 - task-state layer: what remains execution state only
+
+Then:
+1. choose the smallest viable adoption profile: minimum / standard / full
+2. preserve the host's existing strong execution workflows
+3. run the smoke test from `docs/implementation-guide.md`
 
 ## Anti-patterns
 

@@ -33,6 +33,19 @@ If the same content already lives in:
 
 Memory should capture what those layers do not: personal preferences, environmental quirks, and hard-to-infer corrections.
 
+## Borderline examples
+
+### Belongs in memory
+- "User prefers concise closeout summaries"
+- "This environment has no scheduler, so weekly/monthly reviews are manual"
+- "The host framework already has strong native verification workflows"
+
+### Does not belong in memory
+- the full checklist for start-of-work gating
+- the review template used before claiming completion
+- the complete doctrine or iron laws
+- active task plans for the current session
+
 ## Typical memory entries for this kit
 
 - "User prefers minimal file edits over large refactorings"

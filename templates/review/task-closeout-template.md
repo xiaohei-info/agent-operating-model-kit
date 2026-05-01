@@ -29,6 +29,43 @@ When reporting work complete, include:
 - what the customer or next agent should do next
 - any follow-up work that remains
 
+## Worked example: documentation change
+
+### What I changed or produced
+- rewrote `README.md` and `docs/implementation-guide.md`
+- kept repository structure unchanged
+- out of scope: no runtime behavior or host config changes
+
+### How I verified it
+- re-read both files after editing
+- inspected `git diff` to confirm the changes matched the request
+- checked that referenced file paths still exist
+
+### Known limits or unverified edges
+- no live host adoption was performed in this repo-only change
+- framework-specific integrations were not re-tested beyond document consistency
+
+### Suggested next step
+- run a repo-link-only adoption dry run in a fresh session or host
+
+## Worked example: code or config change
+
+### What I changed or produced
+- updated the target configuration file to add the requested setting
+- out of scope: unrelated refactors or service redesign
+
+### How I verified it
+- ran the relevant validation command
+- inspected the changed file directly
+- confirmed the expected output / exit status
+
+### Known limits or unverified edges
+- change was validated in the current environment only
+- production rollout not performed yet
+
+### Suggested next step
+- have the operator approve deployment or run the production-specific verification path
+
 ## Strong closeout claims
 
 Good closeouts:

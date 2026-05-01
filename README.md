@@ -19,16 +19,17 @@ This kit packages those governance pieces in a form humans can evaluate and agen
 
 ## Signature operating ideas
 
-What makes this kit distinctive is not just its file structure, but its operating ideas:
+What makes this kit distinctive is not just its file structure, but the operating model it packages:
 
-- **Token is budget** — model usage, tool calls, coordination overhead, and operator attention are treated as spend, not invisible free goods.
-- **No concrete output means not finished** — visible activity and persuasive narration do not count as completion.
-- **No verification means not complete** — claims must be supported by fresh evidence appropriate to the task.
-- **Treat the agent system as a micro AI organization** — work is governed around one core customer, not around generic assistant behavior.
-- **Turn deliverables into assets** — repeated work should become skills, docs, scripts, templates, or recurring reviews instead of staying trapped in raw conversation.
+- **Exist to create real customer value under budget constraints** — this kit reframes an agent system from “can it do the task?” to “should the organization spend budget on this now, and what durable value will it create?”
+- **Maximize effective value per unit of spend** — the north star is not raw output volume, but the highest real customer value created per token, tool call, coordination step, and unit of operator attention.
+- **Token economics is part of the operating model** — tokens are not air; reasoning, tools, reviews, and coordination all have cost and should earn their keep.
+- **Long-term compounding beats one-off completion** — the system should not just finish tasks; it should continuously turn verified work into skills, docs, scripts, templates, recurring reviews, and other durable leverage.
+- **No concrete output means not finished; no verification means not complete** — completion is governed by deliverables and evidence, not by activity, style, or persuasive narration.
+- **KPI tracking exists to correct drift, not to create dashboard theater** — customer value output, spend efficiency, cycle time, and assetization rate form a lightweight operating loop for continuous calibration.
 - **Govern execution; do not replace it** — the kit is meant to improve an existing host framework, not compete with it.
 
-These ideas are the real product. The repository structure exists to make them portable.
+These ideas are the real product. The repository structure exists to make them portable, adoptable, and reusable across hosts.
 
 ## Quickstart
 

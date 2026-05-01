@@ -1,71 +1,75 @@
 # Implementation Guide
 
-This document explains how to land the operating model in an existing agent environment **without** shipping host-framework entry files.
+This document explains how to land the operating model in another agent environment without replacing an execution stack that already works.
 
 ## Core Rule
 
-This repository tells operators and agents **what to add where**.
+This repository is a governance package, not a replacement execution substrate.
 
-It does **not** ship ready-to-overwrite host files like:
-- `AGENTS.md`
-- `SOUL.md`
-- `CLAUDE.md`
-- framework-specific system prompt files
+It tells operators and agents **what to add where**, and provides **thin host-facing files** that can be adapted deliberately.
 
-Different agent stacks may already have mature versions of those files. The safe approach is to guide placement, not replace local entry points.
+Do not blindly copy everything into the host profile. Instead, map the pieces to the right layers.
 
-## What to add where
+## How to adopt
 
 ### 1. Runtime profile / system prompt layer
-Put only compact, high-frequency principles here, for example:
+
+Install the compressed operating charter from `SOUL.md`.
+
+Keep it small:
 - customer value first
 - token is budget
 - no concrete output means not finished
-- work that cannot prove value should not consume budget
-- proactively close gaps, but do not proactively expand scope
+- no verification means not complete
+- proactively close gaps, but do not expand scope
 
-Do **not** put:
+Do not put:
 - the full doctrine
 - KPI definitions
 - long adoption instructions
 - recurring review prompts
 
-### 2. Governance skills
-Use skills for repeatable judgment workflows such as:
-- whether work should start
-- what proves completion
-- whether the result should become an asset
+### 2. Charter layer
 
-This repository includes three governance skills:
-- `operating-gates`
-- `delivery-review-gates`
-- `assetization-closeout`
+Keep the canonical full charter in `docs/operating-doctrine.md`.
 
-These should sit above execution skills rather than replacing them.
+Reference it when:
+- aligning on model changes
+- auditing whether runtime / skills / cron have drifted from doctrine
+- deciding what belongs where
+- explaining the rationale to humans
 
-### 3. Recurring reviews
-Use your framework’s cron or scheduler layer for periodic governance.
+Do not load the full charter into every session unless the host explicitly requests it.
 
-Recommended cadence:
-- weekly operating review
-- monthly doctrine audit
+### 3. Governance skills layer
 
-The goal is to inspect:
-- customer value output
-- token efficiency
-- cycle time
-- assetization rate
+Adopt the three governance skills from this repository:
+- `operating-gates` — gate before starting non-trivial work
+- `delivery-review-gates` — gate before claiming completion
+- `assetization-closeout` — gate after valuable/repeated work
 
-### 4. Memory
-Use memory only for stable facts such as:
+These skills govern execution, not replace it. Use them to enforce value, budget, scope, and verification checks.
+
+### 4. Recurring review layer
+
+Use the host’s cron / scheduler / heartbeat system to run:
+- `templates/cron/weekly-operating-review.md`
+- `templates/cron/monthly-operating-audit.md`
+
+These prompts enforce recurring governance.
+
+### 5. Memory layer
+
+Use the host’s memory system only for stable facts:
 - the core customer identity
 - durable environment constraints
 - long-lived user preferences
 
-Do **not** put the doctrine or long workflows into memory.
+Do not put the doctrine, procedures, or long workflows into memory.
 
-### 5. Task state
-Use your framework’s task board, todo system, or plan files for:
+### 6. Task-state layer
+
+Use the host’s task board, todo, or plan files for:
 - current work
 - blockers
 - next actions
@@ -73,26 +77,55 @@ Use your framework’s task board, todo system, or plan files for:
 
 Task state should track active execution, not permanent governance.
 
+### 7. Host-facing entry files
+
+This repo now ships thin host-facing files that you can adapt deliberately:
+- `AGENTS.md` — operational loader / read router
+- `SOUL.md` — compressed runtime charter
+
+You can:
+- use them directly if the host environment accepts such files
+- merge them into existing host files if the host already has stronger local versions
+- rewrite them for your framework if the conventions differ
+
+Do **not** blindly overwrite stronger local entry files.
+
 ## Recommended rollout order
 
-1. read the README / doctrine
-2. inject a compact runtime principle excerpt
-3. adopt governance skills
-4. add weekly / monthly reviews
-5. add framework-specific integration only where needed
+1. Read `README.md`, `AGENTS.md`, and `SOUL.md`.
+2. Read `docs/operating-doctrine.md` to understand the full charter.
+3. Install the compressed runtime principles.
+4. Install the governance skills.
+5. Install the recurring review prompts.
+6. Map each component to the correct host surface.
+7. Verify that the package did not replace strong execution workflows.
 
 ## Success criteria
 
 A successful adoption should result in:
 - fewer low-value tasks being started
 - more evidence-based completion claims
-- more repeated work turning into reusable assets
-- better budget awareness without destroying execution speed
+- more repeated work becoming reusable assets
+- stronger budget awareness
+- no unnecessary replacement of existing execution workflows
 
 ## Non-goals
 
 This repository is not trying to:
 - define a universal agent personality
-- mandate a multi-agent topology
-- replace an existing execution framework
-- force a single file structure on every host environment
+- mandate a specific multi-agent topology
+- replace a working execution framework
+- force one file structure onto every host environment
+- add bureaucracy for its own sake
+
+## Verification
+
+After adopting:
+- `README.md` should remain the primary landing and onboarding doc
+- `AGENTS.md` should serve as the operational loader
+- `SOUL.md` should serve as the compressed runtime charter
+- `docs/operating-doctrine.md` should hold the full canonical doctrine
+- skills should govern execution rather than replace it
+- recurring reviews should run with clear output contracts
+- memory should stay compact
+- task state should stay execution-focused

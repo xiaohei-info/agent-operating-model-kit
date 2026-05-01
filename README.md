@@ -1,127 +1,122 @@
 # Agent Operating Model Kit
 
-A reusable operating model kit for running a **single-customer micro AI organization**.
+A reusable operating model for running an agent system as a **single-customer micro AI organization**.
 
-This repository is not a new execution engine. It is a **governance overlay** for agent systems that already know how to execute tasks. Its purpose is to help those systems behave like small, disciplined, economically aware organizations.
+This repository is not a new execution engine. It is a **governance package**: a portable charter, thin always-loaded guidance, governance skills, and recurring review prompts that can be layered onto an execution stack that already works.
 
 For Chinese readers: see [README.zh-CN.md](README.zh-CN.md).
 
+## Why this repo exists
+
+Most agent systems do not fail because they cannot execute. They fail because they lack:
+- a stable definition of customer value
+- budget discipline
+- credible completion criteria
+- recurring review
+- structural assetization
+
+This kit packages those governance pieces in a form another agent can actually install.
+
+## Packaging model
+
+This repo now follows a stronger split between **full doctrine** and **always-loaded operating surfaces**:
+
+- `docs/operating-doctrine.md` — full charter / canonical doctrine
+- `AGENTS.md` — thin operational loader for another agent
+- `SOUL.md` — compressed runtime charter for high-frequency loading
+- `skills/` — reusable governance gates
+- `templates/cron/` — recurring weekly/monthly review prompts
+- `templates/review/` — closeout structure for delivery review
+- `docs/implementation-guide.md` — how to land this into another stack
+- `docs/integrations/hermes.md` — Hermes-specific mapping
+
+That is the key packaging principle:
+
+> Keep the always-loaded layer short. Keep the full doctrine canonical and separate.
+
 ## Quick start
 
-The fastest way to use this repository is to **hand it directly to your own agent**.
+The fastest path is to hand this repository to your agent and ask it to adopt the smallest useful layer.
 
-Use a prompt like this:
+Suggested prompt:
 
-> Read this repository starting with `README.md`, then `docs/implementation-guide.md`. Adopt this operating model in the current environment. Decide what should be added to the runtime profile or system prompt, what should become governance skills, what should become recurring reviews, and what should stay in memory or task state. Start with the smallest useful adoption layer. Reuse the existing execution stack wherever possible. Do not rebuild planning, coding, research, or debugging workflows unless there is a clear governance gap.
+> Read `README.md`, then `AGENTS.md`, then `SOUL.md`, then `docs/implementation-guide.md`. Use `docs/operating-doctrine.md` as the full charter reference. Map this kit into the current environment without replacing a mature execution stack. Decide what belongs in the runtime layer, what should become governance skills, what should run on a recurring schedule, and what should stay out of memory. Start with the smallest useful adoption layer and report the concrete file / skill / cron changes you recommend.
 
-If your framework already has solid planning, coding, research, and review workflows, do **not** replace them. This kit is designed to help your agent layer governance on top of what already works.
+If your framework already has solid planning, coding, research, debugging, and verification workflows, **do not replace them**. This kit is designed to govern them, not rebuild them.
 
-## Charter
+## How another agent should land this
 
-### What this is
+### Step 1 — Read in the right order
 
-Treat the agent system as a **micro AI organization** centered on one core customer.
+1. `README.md` — understand the package and adoption path
+2. `AGENTS.md` — understand the loader / routing pattern
+3. `SOUL.md` — understand the compressed runtime principles
+4. `docs/operating-doctrine.md` — read when you need the full charter
+5. `docs/implementation-guide.md` — map the pieces into the host stack
+6. `docs/integrations/hermes.md` — if the target stack is Hermes
 
-This model works best when there is one primary customer, stakeholder, or operating center for demand, budget, and acceptance.
+### Step 2 — Install only the smallest useful layer first
 
-In this model, the core customer is:
-- the primary source of demand
-- the budget provider
-- the final acceptance authority
-- the anchor for value measurement
+Use layers rather than a giant one-shot install:
 
-That shifts the operating question from:
+- **Level 0 — doctrine**: align on the model
+- **Level 1 — runtime layer**: install the compressed principles from `SOUL.md`
+- **Level 2 — governance skills**: add the three governance gates from `skills/`
+- **Level 3 — recurring review**: wire the weekly/monthly prompts from `templates/cron/`
+- **Level 4 — framework mapping**: connect runtime / skills / cron / memory / task state to the host stack
+- **Level 5 — portable mode**: keep the package reusable across projects or profiles
 
-> Can the agent do this?
+### Step 3 — Keep the layers clean
 
-To:
-
-> Should the organization spend budget on this now, and what durable value will it create?
-
-### Mission
-
-Within budget constraints, continuously create the maximum real value for the core customer.
-
-### North star
-
-**Maximize effective value created per token spent.**
-
-### Default goal
-
-Turn needs into deliverables. Turn deliverables into assets.
-
-### Iron laws
-
-1. Work that cannot prove value should not consume budget.
-2. Work without a concrete output is not considered finished work.
-3. Work without verification or review is not considered truly complete.
-4. Prefer asset creation over repeated one-off effort.
-5. Prefer the shortest path that preserves correctness and customer value.
-6. Agents may proactively close gaps, but may not proactively expand scope for the sake of activity.
-
-### Leadership principles
-
-- Customer value first
-- Steward budget deliberately
-- Deliverables over performance
-- Correctness over fluency
-- Simplify relentlessly
-- Review protects reality
-- Assets compound
-- Act, but don’t thrash
-- State assumptions and boundaries
-- Learn into structure
-
-### Company-level KPIs
-
-- customer value output
-- token efficiency
-- cycle time
-- assetization rate
-
-## How to adopt it
-
-Use the model in layers, not as one giant install.
-
-### Level 0: Doctrine only
-Read and align on the model.
-
-### Level 1: Runtime principles
-Add a compact excerpt to your runtime profile / system prompt / equivalent layer.
-
-### Level 2: Governance gates
-Adopt small governance skills so the model influences task start, closeout, and assetization.
-
-### Level 3: Recurring review
-Add weekly and monthly review cadence.
-
-### Level 4: Framework-specific integration
-Map the model onto your framework’s runtime profile, skills, cron/scheduler, memory, and task tracking.
-
-### Level 5: Standalone operating mode
-Package doctrine + runtime principles + governance skills + recurring review as a portable operating mode.
+- put **full doctrine** in docs, not memory
+- keep **runtime prompts** compressed and high-frequency only
+- put **repeatable judgment** in skills
+- put **recurring governance** in cron / scheduler prompts
+- keep **memory** for stable facts only
+- keep **task state** for active execution only
 
 ## What goes where
 
-- **README / docs**: doctrine, rationale, KPI definitions, integration guidance
-- **runtime profile / system prompt**: compact high-frequency principles only
-- **skills**: reusable governance gates and judgment workflows
-- **cron / scheduler**: weekly and monthly operating reviews
-- **memory**: stable customer, environment, and preference facts only
+- **`docs/operating-doctrine.md`**: full charter, rationale, KPIs, governing logic
+- **`AGENTS.md`**: the read router that tells another agent what to load first and when to escalate to deeper docs
+- **`SOUL.md`**: compact operating principles for high-frequency prompt loading
+- **`skills/`**: governance gates for start, closeout, and assetization
+- **`templates/cron/`**: scheduled weekly and monthly governance reviews
+- **`templates/review/`**: delivery closeout shape
+- **memory**: stable customer / environment / preference facts only
 - **task state**: current work, blockers, next actions, verification targets
-- **assets**: skills, scripts, SOPs, docs, templates, recurring reviews
+- **assets**: skills, SOPs, docs, scripts, templates, recurring reviews
 
-Do **not** put the full doctrine into memory or a giant runtime prompt. Do **not** use this kit to replace an execution stack that already works.
+## Directly usable assets
 
-## What’s inside
+### Runtime surfaces
+- [`AGENTS.md`](AGENTS.md)
+- [`SOUL.md`](SOUL.md)
+- [`docs/operating-doctrine.md`](docs/operating-doctrine.md)
+
+### Governance skills
+- [`skills/operating-gates/SKILL.md`](skills/operating-gates/SKILL.md)
+- [`skills/delivery-review-gates/SKILL.md`](skills/delivery-review-gates/SKILL.md)
+- [`skills/assetization-closeout/SKILL.md`](skills/assetization-closeout/SKILL.md)
+
+### Recurring review prompts
+- [`templates/cron/weekly-operating-review.md`](templates/cron/weekly-operating-review.md)
+- [`templates/cron/monthly-operating-audit.md`](templates/cron/monthly-operating-audit.md)
+
+### Closeout template
+- [`templates/review/task-closeout-template.md`](templates/review/task-closeout-template.md)
+
+## Repository layout
 
 ```text
 agent-operating-model-kit/
 ├── README.md
 ├── README.zh-CN.md
+├── AGENTS.md
+├── SOUL.md
 ├── CONTRIBUTING.md
-├── LICENSE
 ├── docs/
+│   ├── operating-doctrine.md
 │   ├── implementation-guide.md
 │   ├── social-preview.md
 │   └── integrations/
@@ -133,29 +128,37 @@ agent-operating-model-kit/
 │   │   └── SKILL.md
 │   └── assetization-closeout/
 │       └── SKILL.md
+├── templates/
+│   ├── cron/
+│   │   ├── weekly-operating-review.md
+│   │   └── monthly-operating-audit.md
+│   └── review/
+│       └── task-closeout-template.md
 └── assets/
     └── social-preview-final.jpg
 ```
 
 ## Philosophy
 
-The most common mistake in agent systems is to solve missing governance by adding more execution complexity.
-
-This kit goes in the opposite direction:
-- reuse the host framework’s execution strengths
+This package is intentionally conservative:
+- reuse the host framework's execution strengths
 - add doctrine before adding machinery
-- add gates before adding new roles
+- add gates before adding roles
 - add recurring review before adding more automation
-- convert repeated labor into assets only where it clearly compounds value
+- keep always-loaded files short
+- turn repeated work into assets only when it clearly compounds value
+
+## Full charter
+
+For the complete doctrine, read:
+- [docs/operating-doctrine.md](docs/operating-doctrine.md)
 
 ## Framework integrations
 
-This repository is intentionally framework-agnostic at the core.
+Core doctrine stays framework-agnostic.
 
-Framework-specific guidance should stay at the edges under `docs/integrations/`.
-
-Current reference integration:
-- Hermes: `docs/integrations/hermes.md`
+Current reference edge integration:
+- Hermes: [docs/integrations/hermes.md](docs/integrations/hermes.md)
 
 ## Contributing
 

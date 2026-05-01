@@ -28,14 +28,18 @@ Read:
 - KPI expansion that adds bureaucracy without leverage
 - local or user-specific assumptions in core docs
 
-## Important Boundary
+## Host-facing entry files
 
-Do **not** add host entry files such as:
+This repository now ships thin host-facing files that another agent can adapt deliberately:
 - `AGENTS.md`
 - `SOUL.md`
-- framework-specific system prompt files
 
-This repository should tell operators and agents **what belongs where**, not ship files that could accidentally overwrite a mature local setup.
+These are intended to be:
+- used directly if the host environment accepts them
+- merged into stronger local files if the host already has mature content
+- rewritten for the target framework if conventions differ
+
+Do **not** blindly overwrite stronger local entry files. The goal is deliberate adaptation, not accidental replacement.
 
 ## Change Rules
 
@@ -49,10 +53,14 @@ For meaningful changes:
 ## Verification Checklist
 
 Before claiming work is ready, verify:
-- the main README still functions as the primary entry point
+- the main README still functions as the primary landing doc
+- `AGENTS.md` serves as a thin operational loader
+- `SOUL.md` serves as a compressed runtime charter
+- `docs/operating-doctrine.md` remains canonical and separate
 - file references are valid
-- no host-entry artifacts were introduced
+- host-facing files were added deliberately, not blindly
 - governance skills still stay in governance scope
+- recurring review prompts have clear output contracts
 - the package became simpler or more useful, not just larger
 
 ## Design Standard
